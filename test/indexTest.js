@@ -20,3 +20,20 @@ describe('index.js', function () {
     });
   });
 });
+function titleCased() {
+  return tutorials.map(tutorial => {
+    // split one tutorial into words
+    let words = tutorial.split(" ");
+
+    // capitalize each word
+    let capitalizedWords = words.map(word => {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    });
+
+    // put words back into a single string
+    return capitalizedWords.join(" ");
+  });
+}
+
+console.log(titleCased());
+
