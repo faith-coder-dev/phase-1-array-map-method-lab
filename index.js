@@ -12,13 +12,17 @@ const tutorials = [
 ];
 
 function titleCased() {
-  return tutorials.map(tutorial => {
-    let words = tutorial.split(" ");
-    let capitalizedWords = words.map(word => {
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    });
-    return capitalizedWords.join(" ");
-  });
+  return tutorials.map(tutorial =>
+    tutorial
+      .split(" ")
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ")
+  );
 }
 
 console.log(titleCased());
+
+// Export for Mocha tests
+if (typeof module !== "undefined") {
+  module.exports = { titleCased };
+}
